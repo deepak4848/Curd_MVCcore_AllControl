@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Curd_Operation080622.Models.TeacherJoin>
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+              <a asp-action="Create" class="btn btn-primary">Add New User</a>
+               </th>
+
+             <th>
+                 <form method="post" asp-controller="AdminDept" asp-action="PDF">
+                 <label>&nbsp;</label>
+                 <input type="submit" class="btn btn-danger" value="Genrate PDF"/>
+                </form>
+            </th>
+
+    <th>
+        <form method="post" asp-controller="AdminDept" asp-action="Export">
+        <label>&nbsp;</label>
+        <input type="submit" class="btn btn-success" value="Genrate Excel"/>
+        </form>
+    </th>
+   
+            </tr>
+        </thead>
+    </table>
+ </div>
+
+<table class="table table-dark table-striped table-hover justify-content-center" style="width:1500px; padding-right:800px; padding-left:-5px;">
+    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Teacher_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher_Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher_Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teahching_Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hobbie)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teahching_Class)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.DOJ)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.CName )
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Gender_Name )
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Hobbie )
+            </td>
+            
+            <td>
+                <a asp-action="Create" asp-route-id="@item.Teacher_Id" class="btn btn-primary btn-sm">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Teacher_Id" class="btn btn-success btn-sm">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.Teacher_Id" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
